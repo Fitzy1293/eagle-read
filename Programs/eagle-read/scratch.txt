@@ -1,0 +1,25 @@
+htmlSubstitutions = {'<p>': '':
+                     '</p>': '',
+                     '<em>': '',
+                     '</em>': '',
+                     '<i>': '',
+                     '</i>': '',
+                     '<a href="': '',
+                     '</a>': '',
+                     '&amp;': '&',
+                     '">': ' ',
+                     '<br/>', '\n'}
+
+htmlSubstitutions = {}
+
+content = paraTag.replace('<p>', '')
+content = content.replace('</p>', '')
+content = content.replace('<em>', '')
+content = content.replace('</em>', '')
+content = content.replace('<i>', '')
+content = content.replace('</i>', '')
+content = content.replace('<a href="', '')
+content = content.replace('</a>', '')
+content = content.replace('&amp;', '&')
+content = content.replace('">', ' ')
+content = content.replace('<br/>', '\n')
