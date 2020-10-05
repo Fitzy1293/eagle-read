@@ -1,4 +1,5 @@
 #!/bin/env python3
+
 '''
 Takes one argument:
     Berkshire eagle article full URL
@@ -16,7 +17,7 @@ def findPrintArticle(articleUrl='https://www.berkshireeagle.com') -> str: #Retur
     paragraphs = [str(i) for i in soup.find_all('p') if str(i).startswith('<p>')]
     return '\n'.join(paragraphs)
 
-def writeHTML(fname, articleText) -> None: # Writes article to local html file
+def writeHTML(fname, articleText) -> None: # Writes article to local HTML file
     with open(fname, 'w+') as f:
         f.write('<!DOCTYPE HTML>\n')
         f.write('<html>\n')
@@ -25,9 +26,12 @@ def writeHTML(fname, articleText) -> None: # Writes article to local html file
         f.write('</body>\n')
         f.write('</html>\n')
 
-if __name__ == '__main__':
+def main():
     articleUrl = sys.argv[1]
     articleText = findPrintArticle(articleUrl)
     fname = articleUrl.split('/')[-1].replace('-', '_').replace(',', '_') + '.html'
     writeHTML(fname, articleText)
     webbrowser.open(fname)
+
+if __name__ == '__main__':
+    main()
